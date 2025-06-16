@@ -1,9 +1,14 @@
 #las listas son iguales a los tulips excepto q las listas son modificables y los tulips no. Son como las listas en java.
 fruits = ["apple","orange","grape"]
 
+fruits_copy = fruits.copy() #crea un shallow copy
+print("fruits_copy ANTES de cambio en fruits: " + str(fruits_copy)) #['apple', 'orange', 'grape']
+
 print(id(fruits))
 fruits +=["melon"]
 print(id(fruits)) #como tienen el mismo id significa q es el mismo objeto q ha sido modificado
+
+print("fruits_copy DESPUES de cambio en fruits: " + str(fruits_copy)) #['apple', 'orange', 'grape']
 
 print(fruits)
 
@@ -13,7 +18,7 @@ print(fruits)
 fruits.append("pear") #agrega item al final
 print(fruits)
 
-fruits.extend(["blueberry"]) 
+fruits.extend(["blueberry"]) #agrega otra lista (como el addAll de java) 
 print(fruits)
 
 fruits.insert(2, "kiwi") #como el set de java

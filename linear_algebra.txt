@@ -1,0 +1,168 @@
+
+Combinacion lineal 
+Combinacion lineal : the plane spanned by two vectors in space.
+Linearly dependant: two vectors that belong to the same line, and therefore do not create a linear combination.
+Linearly independant: two vectors that do not belong to the same line, and therefore create a linear combination (create a span).
+Basis: the basis of a vector space is a set of linearly independant vectors that span the full space. (todo el espacio tridimensional)
+
+-------------------------------------
+
+Linear Transformation.
+
+A linear transformation maps vectors to vectors in a way that preserves straight lines, origin, and proportions.
+It doesn’t twist, bend, or shift things — it only stretches, shrinks, rotates, or reflects --> It is a function that a set of vectors (that live on the same span) is put through, so the vectors can be stretched,
+shrinked, rotated or reflected but never wist, bend, or shift. The origin must be mantained. En el  fondo es estirar, rotar o encojer la rejilla cartesiana.
+Example
+ Examples
+Scaling:
+
+
+T(x)=2x
+Doubles the length of every vector — linear.
+
+Rotation:
+A rotation matrix in 2D rotates all vectors by θ — linear.
+
+Projection onto a line or plane:
+Also linear — it squashes the component orthogonal to the subspace.
+
+Not Linear:
+
+T(x)=x+1
+This is not linear because it shifts the origin (doesn’t preserve 0).
+
+Every linear transformation from Rⁿ to Rᵐ can be represented by a matrix multiplication: T(x) = A(x)
+
+
+Matrices
+
+Cualquier transformacion lineal se puede expresar como una matriz funcion de vectores unitarios i y j.
+Por ejemplo una rotacion de 90 grados en contra de las manecillas del reloj puede expresarse como matriz
+0  -1    de i y j, en donde las nuevas cooredenadas de i seran 0 y 1 (primera columna de la matriz) y las nuevas cooredenadas de j seran -1 y 0.
+1	0
+
+Multiplicacion de matrices.
+Conceptualmente multiplicar dos matricessignifica aplicardos transformaciones lineales, una inmediatamente despues de la otra
+
+Shear (deformacion)  *  Rotacion  -->   Composition (dos transformaciones combinadas producen una nueva transformacion)
+1	1					0	-1			1	-1
+0	1					1    0			1	 0
+
+Formula
+M		*	N			
+a	b		e	f	-->a	b e  -->e  a   g b -->ae+bg   aqui aterriza el vector unitario i. la formula es analoga para f h en donde obtendremos donde atreeiza el vector unitario j.
+c   d		g	h      c    d g		   c     d    ce+dg
+
+
+Al multiplicar, siempre elmultiplicando de mas a la derecha es el primero q se ejecuta y el de mas a la izquierda el ultimo. El orden SÍ importa. M*N no es igual a N*M.
+Al multiplicar, M*(NL) = (NM)*L. Por lo tanto  la propiedadasociativa sí se cumple.
+
+Tres dimensiones
+Linear transformations not only happens in 2D but 3D aswell, in which case instead  of rotating and sheering a 2D grid we rotate and sheer infinite cubes (3D grid).
+Multiplicacion 3D
+0	1	2 			X --> X   0 + Y 1 + Z 2
+3	4	5 			Y		  3		4	  5
+6	7	8 			Z		  6		7     8
+transformation inputvector	outputvector
+
+Determinantes
+La determinante de una transformacion o matriz es en 2D el area del paralelepipedo de la nueva rejilla resultante despues de la transformacion. Una determinante negativa significa que el vector unitario i esta a la derecha del vector unitario j despues de aplicar la transformacion, lo que conceptualmente significa que el plano se ha girado sobre su eje.
+La determinante de una transformacion o matriz es en 2D el volumen  del cubo deformado de la nueva rejilla en 3D resultante despues de la transformacion. Una determinante negativa significa que la regla de los tres dedos solo hace sentido con la mano derecha, no  con la  izquierda despues de la transformacion,  lo que significa que el cubo se ha girado sobre su eje.
+Hay formulas para sacar las determinantes (son largas y lateras).
+
+Inverse Matrix.
+Supongamos que tenemos la transformacion lineal A, con Ax=v, con a input vectot y v output vector. La matriz inversa A-1 es la matriz que al aplicar al output v va a dar el input x, o sea es la matriz que deja las cosas tal como estaban en el comienzo.
+
+Column space
+Column space = all vectors you can get by combining the columns of a matrix with scalars.
+Explicacion mas simple -->El plano o linea que forman las columnas) de una matriz (=vectores) en el espacio tridimensional.
+Example
+Let’s say we have a matrix:
+
+𝐴=[1 2
+  3  6
+  5  10]
+
+​
+  
+​
+ 
+Step 1: Identify the columns
+𝑎1=[1
+    3
+    5]
+,
+𝑎2=[2
+	6
+	10]
+
+​
+  
+​Step 2: Check if columns are linearly independent
+Notice that:
+
+𝑎2=2*𝑎1
+​ 
+So the columns are linearly dependent, and the column space is just the span of one of them.
+
+Step 3: Write the column space
+Col(𝐴)=span{[1
+			3
+			5]}
+
+​
+ So it is a 1-dimensional subspace of 𝑅3— a line (una pura linea) through the origin in the direction of 𝑎1
+
+​✅ Summary:
+Column space is the span of the columns of a matrix.
+It's a subspace of 𝑅m(number of rows).
+Its dimension is the rank of the matrix.
+
+Column space always exists. Linear independence just means it has full dimension — no redundancy among columns. En el caso que dos columnas de una matriz (3x2) sean linealmente independientes, es mas directo aun, ya que automaticamente estos dos vectores(=columnas) forman un plano (o sea rank 2).
+
+-----------------------------------------------------------------------------------------
+
+Notar q tambien podemos tener transformaciones lineales desde 3D a 2D, en el caso por ejemplo de la siguiente transformacion lineal:
+3 1 4
+1 5 9
+Aplicadas por ejemplo al vector
+4
+2
+1
+En este caso 3 1 son las nuevas coordenadas en plano xy a 4, 1 5 a 2 y 4 9 a 1 
+Lo mismo, hacia 1D, si aplicaramos por ejemplo la transformacion lineal
+2
+1
+Ya q 2 1 es solamente una linea en el plano xy.
+
+----------------------------------------------------------------------------------------------
+
+Dot product
+
+Es la suma algebraica (o sea un escalar) de dos vectores. 
+a . c = ac + bd 
+b	d
+Geometricamente es importante pq permite saber el angulo entre los vectores, segun la formula:
+a⋅b=∥a∥∥b∥cos(θ).
+Una proyeccion de b sobre a es el largo que tiene el componente de b que esta en la  misma direccion de a (buscar imagen en internet). 
+El producto punto permite permite conocer las proyecciones (=valor escalar) de un vector sobre otro,  ya que :
+a.b = (largo de b proyectado sobre a) * (largo de a)
+(largo de b proyectado sobre a) = (a.b )/(modulo de a)
+
+---------------------------------------------------------------------------------------------------
+
+
+Cross product
+Supongamos que tenemos los vectores a y b en espacio tridimensional. El producto cruz es el vector perpendicular al plano que forman a y b.
+a=a1  b=b1
+  a2  b b2
+  a3  b b3
+axb = a2b3-a3b2
+	  a3b1-a1b3
+	  a1b2-a2b1
+La magnitud de este nuevo vector es ∥a×b∥=∥a∥∥b∥sin(θ).
+El signo se determina con regla del pulgar de la mano derecha, por lo q producto cruz NO es conmutativo.
+ 
+
+
+   

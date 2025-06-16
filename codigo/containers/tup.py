@@ -3,7 +3,7 @@
 stuff = ("Charles",7,8.2,True,False,"Cats")
 
 print(stuff[2])
-# stuff[2] = "Leaf" #no se puede !
+# stuff[2] = "Leaf" #no se puede,ya q no se pueden agregar o quitar elementos en tuple !
 
 name, value1, value2, bool1,bool2, animal = stuff
 print(name, value1, value2, bool1,bool2, animal) #Charles 7 8.2 [True, False, 'Cats'], o sea *other es un 
